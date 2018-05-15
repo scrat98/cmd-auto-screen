@@ -1,27 +1,17 @@
-import {execCommand, text2Png} from "./utils";
+import {combineCmd, runCmdAsync, runCmdSync} from "./utils";
+import {
+    arp,
+    ipconfig,
+    netstat,
+    netstatCombine as _netstatCombine
+} from './cmd'
 
-const screenshot_folder = 'C:\\Users\\scrat98\\Google Drive\\Универ\\4 семестр\\Telecommunications\\Lab1\\screenshots';
+const screenshotFolder = 'C:\\Users\\scrat98\\Google Drive\\Универ\\4 семестр\\Telecommunications\\Lab1\\screenshots';
 
-const commands = [{
-    name: 'arp',
-    args: [],
-}, {
-    name: 'ipconfig',
-    args: []
-}, {
-    name: 'netstat',
-    args: []
-}, {
-    name: 'ping',
-    args: []
-}, {
-    name: 'route',
-    args: []
-}, {
-    name: 'tracert',
-    args: []
-}];
+runCmdSync(arp, `${screenshotFolder}\\arp`);
 
-execCommand('ping').then((resolve) => {
-    text2Png(resolve, `${screenshot_folder}\\out.png`);
-});
+runCmdAsync(ipconfig, `${screenshotFolder}\\ipconfig`);
+
+runCmdAsync(netstat, `${screenshotFolder}\\netstat`);
+const netstatCombine = combineCmd(_netstatCombine);
+runCmdAsync(netstatCombine, `${screenshotFolder}\\netstat`, 'combine');
