@@ -63,7 +63,7 @@ export function runCmdSync(command, screenshotFolder, baseName = '') {
 export function combineCmd(cmd) {
     const args = cmd.args.reduce((accumulator1, arg1, index1) => {
         return [...cmd.args.reduce((accumulator2, arg2, index2) => {
-            if (index1 !== index2) {
+            if (index1 > index2) {
                 return [...accumulator2, arg1 + ' ' + arg2];
             }
             return accumulator2;
