@@ -85,7 +85,14 @@ export const route = {
     name: 'route',
     args: [
         '',
-        '/?'
+        '/?',
+        'print',
+        'add /p 192.168.35.0 MASK 255.255.255.0 192.168.0.2 METRIC 15',
+        'print',
+        'change 192.168.35.0 192.168.0.5 METRIC 100',
+        'print',
+        'delete 192.168.35.0',
+        'print'
     ]
 };
 

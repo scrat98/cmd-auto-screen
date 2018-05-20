@@ -5,7 +5,8 @@ import {
     netstat,
     netstatCombine as _netstatCombine,
     ping,
-    pingCombine as _pingCombine
+    pingCombine as _pingCombine,
+    route
 } from './cmd'
 
 const screenshotFolder = 'C:\\Users\\scrat98\\Google Drive\\Универ\\4 семестр\\Telecommunications\\Lab1\\screenshots';
@@ -18,6 +19,8 @@ const screenshotFolder = 'C:\\Users\\scrat98\\Google Drive\\Универ\\4 се
 // const netstatCombine = combineCmd(_netstatCombine);
 // runCmdAsync(netstatCombine, `${screenshotFolder}\\netstat`, 'combine');
 
-runCmdAsync(ping, `${screenshotFolder}\\ping`);
-const pingCombine = combineCmd(_pingCombine);
-runCmdAsync(pingCombine, `${screenshotFolder}\\ping`, 'combine');
+// runCmdAsync(ping, `${screenshotFolder}\\ping`);
+// const pingCombine = combineCmd(_pingCombine);
+// runCmdAsync(pingCombine, `${screenshotFolder}\\ping`, 'combine');
+
+runCmdSync(route, `${screenshotFolder}\\route`);
