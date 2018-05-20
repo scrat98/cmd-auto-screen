@@ -27,7 +27,7 @@ export function text2Png(text, path, style = defaultStyle) {
 export function runCmdAsync(command, screenshotFolder, baseName = '') {
     const promises = command.args.map((arg, index) => {
         return new Promise((resolve, reject) => {
-            const cmd = command.name + ' ' + arg;
+            const cmd = command.name + ' ' + arg + ' ' + (typeof command.values !== 'undefined' ? command.values : '');
             console.log(`${cmd} start`);
             execCommand(cmd).then((output) => {
                 console.log(`${cmd} end`);
@@ -46,7 +46,7 @@ export function runCmdSync(command, screenshotFolder, baseName = '') {
     return command.args.reduce((prev, arg, index) => {
         return prev.then(() => {
             return new Promise((resolve, reject) => {
-                const cmd = command.name + ' ' + arg;
+                const cmd = command.name + ' ' + arg + ' ' + (typeof command.values !== 'undefined' ? command.values : '');
                 console.log(`${cmd} start`);
                 execCommand(cmd).then((output) => {
                     console.log(`${cmd} end`);
@@ -72,6 +72,7 @@ export function combineCmd(cmd) {
 
     return {
         name: cmd.name,
-        args
+        args,
+        values: cmd.values
     }
 }

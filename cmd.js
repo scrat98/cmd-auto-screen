@@ -63,8 +63,22 @@ export const ping = {
     name: 'ping',
     args: [
         '',
-        '/?',
+        '/?'
     ]
+};
+
+export const pingCombine = {
+    name: 'ping',
+    args: [
+        '/n 6',
+        '/l 128',
+        '/f',
+        '/i 70',
+        '/r 4',
+        '/s 1',
+        '/w 100'
+    ],
+    values: 'google.com'
 };
 
 export const route = {
