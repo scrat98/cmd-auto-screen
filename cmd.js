@@ -103,3 +103,12 @@ export const tracert = {
         '/?'
     ]
 };
+
+export const tracertCombine = {
+    name: 'tracert',
+    args: [
+        '/d',
+        '/h 3',
+    ],
+    values: 'google.com'
+};
